@@ -118,6 +118,9 @@ public class MyArray<E> {
             //将数组元素后一位覆盖前一位
             data[i - 1] = data[i];
         }
+        size --;
+        //手动清掉loitering obiects
+        data[size] = null;
         return ret;
     }
 
