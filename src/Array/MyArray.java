@@ -67,9 +67,9 @@ public class MyArray<E> {
      * @version: 1.0
      */
     public void add(int index,E e){
-        //首先检查数组容量情况，判断是否可以继续添加
+        //首先检查数组容量情况，如果已满，进行二倍扩容
         if(size == data.length){
-            throw new IllegalArgumentException("Add failed. MyArray is full"+"\n"+"添加失败，数组已满");
+           resize(2*data.length);
         }
         //检查参数合法性，是否为负数，是否大于了数组的大小
         if(index < 0 || index > size){
@@ -121,6 +121,11 @@ public class MyArray<E> {
         size --;
         //手动清掉loitering obiects
         data[size] = null;
+        //如果数组大小不足内数组总长度四分之一，则将数组容量缩减为原来一半
+        //懒式缩容，给与预留空间，放置复杂度震荡
+        if(size == data.length / 4 && data.length / 2 != 0){
+            resize(data.length / 2);
+        }
         return ret;
     }
 
@@ -221,6 +226,26 @@ public class MyArray<E> {
         }
         return -1;
     }
+
+    /**
+     * @description: 动态数组方法，创建新的数组，指定新的容量，将旧数组复制到新数组中并本类就数组指向新数组
+     * @author WuQiChuan
+     * @date 2018/9/27 21:37
+     * @param newCapacity 新数组的容量
+     * @return void
+     * @version: 1.0
+     */
+    private void resize(int newCapacity){
+        //创建一个新的数组
+        E[] newData = (E[]) new Object[newCapacity];
+        //将旧数组内容复制到新数组中
+        for (int i = 0; i < size ;i++){
+            newData[i] = data[i];
+        }
+        //将本类的数组指向新数组，完成数组扩容
+        data = newData;
+    }
+
 
     /**
      * @description:重写toString
