@@ -1,18 +1,21 @@
 import Array.MyArray;
+import stack.MyArryStack;
 
 public class Main {
 
 
     public static void main(String[] args) {
+        //动态数组
         MyArray myArray = new MyArray<String>(11);
-        for (int i=10;i<60;i++){
-            myArray.add(i);
-        }
-        System.out.println(myArray);
+        //栈
+        MyArryStack<String> arryStack = new MyArryStack<String>();
         for (int i=10;i<20;i++){
-            myArray.remove(i);
+            arryStack.push(i+"haha");
         }
-        System.out.println(myArray);
+        System.out.println(arryStack);
+        arryStack.pop();
+        String peek = arryStack.peek();
+        System.out.println(peek);
 
     }
 

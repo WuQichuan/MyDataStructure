@@ -130,6 +130,42 @@ public class MyArray<E> {
     }
 
     /**
+     * @description:移除数组的最后一个元素
+     * @author WuQiChuan
+     * @date 2018/9/29 19:26
+     * @param
+     * @return E
+     * @version: 1.0
+     */
+    public E removeLast(){
+        return remove(size - 1);
+    }
+
+    /**
+     * @description:获取数组最后一个元素
+     * @author WuQiChuan
+     * @date 2018/9/29 19:29
+     * @param
+     * @return E
+     * @version: 1.0
+     */
+    public E getLast(){
+        return get(size - 1);
+    }
+
+    /**
+     * @description:获得数组第一个元素
+     * @author WuQiChuan
+     * @date 2018/9/29 19:30
+     * @param
+     * @return E
+     * @version: 1.0
+     */
+    public E getFirst(){
+        return get(0);
+    }
+
+    /**
      * @description:从数组中删除元素e,删除成功返回true，删除失败返回false
      * @author WuQiChuan
      * @date 2018/9/20 23:09
