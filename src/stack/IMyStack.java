@@ -2,7 +2,7 @@ package stack;
 
 /**
  * @author WuQiChuan
- * @Description:自我封装的栈
+ * @Description:自我封装的数据结构：栈
  * @Date: Created in:2018/9/27 22:27
  * @Version: 1.0
  */

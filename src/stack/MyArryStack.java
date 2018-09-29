@@ -4,7 +4,7 @@ import Array.MyArray;
 
 /**
  * @author WuQiChuan
- * @Description:
+ * @Description:自我封装的数据结构：栈
  * @Date: Created in:2018/9/27 22:56
  * @Version: 1.0
  */
@@ -48,6 +48,7 @@ public class MyArryStack<E> implements IMyStack{
     public void push(Object o) {
         //用于泛型擦去的原因，此处只能用过Object来转换成E类型
         E e = (E) o;
+        //入栈操作，向动态数组末尾添加一个元素
         array.add(e);
     }
 
@@ -55,11 +56,13 @@ public class MyArryStack<E> implements IMyStack{
 
     @Override
     public E pop() {
+        //出栈操作，移除动态数组末尾的元素并且返回
         return array.removeLast();
     }
 
     @Override
     public E peek() {
+        //查看栈顶元素操作，查看数组末尾的元素
         return array.getLast() ;
     }
 

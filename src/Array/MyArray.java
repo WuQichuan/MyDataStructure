@@ -2,7 +2,7 @@ package Array;
 
 /**
  * @author WuQiChuan
- * @Description: 手动封装数组
+ * @Description: 自我封装的数据结构：动态数组
  * @Date: Created in: 2018/9/20 21:42
  * @Version: 1.0
  */
@@ -14,7 +14,7 @@ public class MyArray<E> {
     private int size;
 
     /**
-     * @description:有参数的构造函数
+     * @description:有参数的构造函数，数组初始化为指定的长度capacity
      * @author WuQiChuan
      * @date 2018/9/20 21:48
      * @param capacity 数组的最大长度
@@ -264,7 +264,7 @@ public class MyArray<E> {
     }
 
     /**
-     * @description: 动态数组方法，创建新的数组，指定新的容量，将旧数组复制到新数组中并本类就数组指向新数组
+     * @description: 改变数组容量方法，创建新的数组，指定新的容量，将旧数组复制到新数组中并本类旧数组指向新数组
      * @author WuQiChuan
      * @date 2018/9/27 21:37
      * @param newCapacity 新数组的容量
@@ -278,7 +278,7 @@ public class MyArray<E> {
         for (int i = 0; i < size ;i++){
             newData[i] = data[i];
         }
-        //将本类的数组指向新数组，完成数组扩容
+        //将本类的数组指向新数组，完成数组容量变更
         data = newData;
     }
 
