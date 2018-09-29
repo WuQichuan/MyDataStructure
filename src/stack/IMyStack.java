@@ -3,6 +3,7 @@ package stack;
 /**
  * @author WuQiChuan
  * @Description:自我封装的数据结构：栈
+ * 简单说明：栈，先进后出，先进的进入栈底部，每次只能从栈顶取出元素
  * @Date: Created in:2018/9/27 22:27
  * @Version: 1.0
  */

@@ -15,7 +15,7 @@ public class TestValidParaentheses {
         //使用java提供的栈
         Stack<Character> stack = new Stack<>();
         //使用自我封装的栈
-        MyArryStack<Character> myArryStack = new MyArryStack<>();
+        MyArrayStack<Character> myArryStack = new MyArrayStack<>();
         //遍历传入的字符串
         for(int i = 0;i<s.length();i++){
             char c = s.charAt(i);

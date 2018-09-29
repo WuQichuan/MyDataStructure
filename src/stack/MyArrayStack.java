@@ -8,7 +8,7 @@ import Array.MyArray;
  * @Date: Created in:2018/9/27 22:56
  * @Version: 1.0
  */
-public class MyArryStack<E> implements IMyStack{
+public class MyArrayStack<E> implements IMyStack{
     MyArray<E> array;
 
     /**
@@ -19,7 +19,7 @@ public class MyArryStack<E> implements IMyStack{
      * @return
      * @version: 1.0
      */
-    public MyArryStack(int capacity){
+    public MyArrayStack(int capacity){
         array = new MyArray<>(capacity);
     }
 
@@ -31,7 +31,7 @@ public class MyArryStack<E> implements IMyStack{
      * @return
      * @version: 1.0
      */
-    public MyArryStack(){
+    public MyArrayStack(){
         array = new MyArray<>();
     }
     @Override

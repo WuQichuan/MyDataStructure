@@ -130,7 +130,7 @@ public class MyArray<E> {
     }
 
     /**
-     * @description:移除数组的最后一个元素
+     * @description:移除数组的最后一个元素并返回该元素
      * @author WuQiChuan
      * @date 2018/9/29 19:26
      * @param
@@ -139,6 +139,18 @@ public class MyArray<E> {
      */
     public E removeLast(){
         return remove(size - 1);
+    }
+
+    /**
+     * @description:移除数组第一个元素并返回该元素
+     * @author WuQiChuan
+     * @date 2018/9/29 21:32
+     * @param
+     * @return E
+     * @version: 1.0
+     */
+    public E removeFirst(){
+        return remove(  0);
     }
 
     /**
