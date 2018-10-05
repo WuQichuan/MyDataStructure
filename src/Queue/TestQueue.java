@@ -8,11 +8,11 @@ package Queue;
  */
 public class TestQueue {
     public static void main(String[] args) {
-        MyArrayQueue<Integer> queue = new MyArrayQueue<>();
+        MyLoopQueue<Integer> queue = new MyLoopQueue<>();
         for(int i = 0 ;i < 10 ; i++ ){
             queue.enqueue(i);
             System.out.println(queue);
-            if(i%2 == 0){
+            if(i%3 == 2){
                 queue.dequeue();
                 System.out.println(queue);
             }

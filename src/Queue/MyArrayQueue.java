@@ -4,7 +4,7 @@ import Array.MyArray;
 
 /**
  * @author WuQiChuan
- * @Description:
+ * @Description:数组队列
  * @Date: Created in:2018/9/29 21:38
  * @Version: 1.0
  */
