@@ -4,11 +4,13 @@ import Array.MyArray;
 
 /**
  * @author WuQiChuan
- * @Description:自我封装的数据结构：栈
+ * @Description: 自我封装的数据结构：栈(使用动态数组实现)
  * @Date: Created in:2018/9/27 22:56
  * @Version: 1.0
  */
 public class MyArrayStack<E> implements IMyStack{
+
+    //使用动态数组实现栈
     MyArray<E> array;
 
     /**

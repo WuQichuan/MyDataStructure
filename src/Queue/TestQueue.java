@@ -8,7 +8,7 @@ package Queue;
  */
 public class TestQueue {
     public static void main(String[] args) {
-        MyLoopQueue<Integer> queue = new MyLoopQueue<>();
+        IQueue<Integer> queue = new MyLinkedListQueue<>();
         for(int i = 0 ;i < 10 ; i++ ){
             queue.enqueue(i);
             System.out.println(queue);

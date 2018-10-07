@@ -160,6 +160,60 @@ public class MyLinkedList<E> {
     }
 
     /**
+     * @description: 在链表为Index索引的位置（从0开始），删除元素e
+     * @author WuQiChuan
+     * @date 2018/10/7 21:13
+     * @param index
+     * @return E
+     * @version: 1.0
+     */
+    public E remove(int index){
+        //判断Index是否合法
+        if(index < 0 || index > size){
+            throw  new IllegalArgumentException("remove failed,Illegal index");
+        }
+        //要找到待删除节点的前一个节点
+        Node prev = dummyhead;
+        for(int i = 0;i < index;i++){
+            prev = prev.next;
+        }
+        //delNode为待删除节点
+        Node delNode = prev.next;
+        //将待删除节点的前一个节点的next直接连接到待删除节点的next
+        //也就是直接跳过待删除节点，就相当于删除了这个节点
+        prev.next = delNode.next;
+        //将待删除节点的next变为null，使其彻底脱离这个链表并便于回收
+        delNode.next = null;
+        size --;
+
+        return delNode.e;
+    }
+
+    /**
+     * @description:删除链表第一个元素
+     * @author WuQiChuan
+     * @date 2018/10/7 21:16
+     * @param
+     * @return E
+     * @version: 1.0
+     */
+    public E removeFirst(){
+        return remove(0);
+    }
+
+    /**
+     * @description:删除最后一个元素
+     * @author WuQiChuan
+     * @date 2018/10/7 21:17
+     * @param
+     * @return E
+     * @version: 1.0
+     */
+    public E removeLast(){
+        return remove(size-1);
+    }
+
+    /**
      * @description:获取链表第Index个元素
      * @author WuQiChuan
      * @date 2018/10/6 16:08

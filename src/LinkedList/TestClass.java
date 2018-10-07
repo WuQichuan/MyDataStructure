@@ -15,5 +15,12 @@ public class TestClass {
         }
         myLinkedList.add(2,666);
         System.out.println(myLinkedList);
+        myLinkedList.remove(2);
+        System.out.println(myLinkedList);
+        myLinkedList.removeFirst();
+        System.out.println(myLinkedList);
+        myLinkedList.removeLast();
+        System.out.println(myLinkedList);
+
     }
 }
