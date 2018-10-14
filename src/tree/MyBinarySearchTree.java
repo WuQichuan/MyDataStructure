@@ -148,16 +148,90 @@ public class MyBinarySearchTree <T extends Comparable<T>>{
         }
     }
 
+    /**
+     * @description: 先序遍历，给外部调用的
+     * @author WuQiChuan
+     * @date 2018/10/11 19:21
+     * @param
+     * @return void
+     * @version: 1.0
+     */
     public void preOrder(){
         preOrder(root);
     }
 
-    public void preOrder(Node node){
+    /**
+     * @description: 先序遍历（递归），内部调用，先序遍历以Node为根的二分搜索树
+     * @author WuQiChuan
+     * @date 2018/10/11 19:21
+     * @param node
+     * @return void
+     * @version: 1.0
+     */
+    private void preOrder(Node node){
         if(node == null){
             return;
         }
         System.out.println(node.t);
         preOrder(node.left);
         preOrder(node.right);
+    }
+
+    /**
+     * @description: 中序遍历，给外部调用的
+     * @author WuQiChuan
+     * @date 2018/10/11 19:25
+     * @param
+     * @return void
+     * @version: 1.0
+     */
+    public void inOrder(){
+        inOrder(root);
+    }
+
+    /**
+     * @description: 中序遍历（递归），内部调用，中序遍历以Node为根的二分搜索树
+     * @author WuQiChuan
+     * @date 2018/10/11 19:26
+     * @param node
+     * @return void
+     * @version: 1.0
+     */
+    private void inOrder(Node node){
+        if(node == null){
+            return;
+        }
+        inOrder(node.left);
+        System.out.println(node.t);
+        inOrder(node.right);
+    }
+
+    /**
+     * @description: 后序遍历，给外部调用的
+     * @author WuQiChuan
+     * @date 2018/10/11 19:36
+     * @param
+     * @return void
+     * @version: 1.0
+     */
+    public void postOrder(){
+        postOrder(root);
+    }
+
+    /**
+     * @description: 后序遍历（递归），内部调用，后序遍历以Node为根的二分搜索树
+     * @author WuQiChuan
+     * @date 2018/10/11 19:36
+     * @param node
+     * @return void
+     * @version: 1.0
+     */
+    private void postOrder(Node node){
+        if(node == null){
+            return;
+        }
+        postOrder(node.left);
+        postOrder(node.right);
+        System.out.println(node.t);
     }
 }
