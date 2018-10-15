@@ -1,5 +1,8 @@
 package tree;
 
+import java.util.LinkedList;
+import java.util.Queue;
+
 /**
  * @author WuQiChuan
  * @Description: 自我封装数据结构：二分搜索树
@@ -233,5 +236,177 @@ public class MyBinarySearchTree <T extends Comparable<T>>{
         postOrder(node.left);
         postOrder(node.right);
         System.out.println(node.t);
+    }
+
+    /**
+     * @description: 二分搜索树层序遍历 ，广度优先算法
+     * @author WuQiChuan
+     * @date 2018/10/15 19:58
+     * @param
+     * @return void
+     * @version: 1.0
+     */
+    public void levelOrder(){
+        Queue<Node> queue = new LinkedList<>();
+        queue.offer(root);
+        while (!queue.isEmpty()){
+            Node cur = queue.remove();
+            System.out.println(cur.t);
+            if(cur.left != null){
+                queue.offer(cur.left);
+            }
+            if(cur.right !=null){
+                queue.offer(cur.right);
+            }
+        }
+    }
+
+    /**
+     * @description: 返回二分搜索树最小元素，给外部调用
+     * @author WuQiChuan
+     * @date 2018/10/15 20:07
+     * @param
+     * @return T
+     * @version: 1.0
+     */
+    public T minInum(){
+        if(size == 0){
+            throw new IllegalArgumentException("BST is Empty");
+        }
+
+        return minInum(root);
+    }
+
+    /**
+     * @description: 返回当前节点下的最小元素，递归方法
+     * @author WuQiChuan
+     * @date 2018/10/15 20:07
+     * @param node
+     * @return T
+     * @version: 1.0
+     */
+    private T minInum(Node node){
+        //递归结束条件，左子树为空，返回当前节点元素
+        if(node.left == null){
+            return node.t;
+        }
+        //否则递归去左子树寻找
+        return minInum(node.left);
+    }
+
+    /**
+     * @description: 返回二分搜索树最大元素，给外部调用
+     * @author WuQiChuan
+     * @date 2018/10/15 20:07
+     * @param
+     * @return T
+     * @version: 1.0
+     */
+    public T maxInum(){
+        if(size == 0){
+            throw new IllegalArgumentException("BST is Empty");
+        }
+        return maxInum(root);
+    }
+
+    /**
+     * @description: 返回当前节点下的的最大元素，递归方法
+     * @author WuQiChuan
+     * @date 2018/10/15 20:07
+     * @param node
+     * @return T
+     * @version: 1.0
+     */
+    private T maxInum(Node node){
+        //递归结束条件，左子树为空，返回当前节点元素
+        if(node.right == null){
+            return node.t;
+        }
+        //否则递归去左子树寻找
+        return maxInum(node.right);
+    }
+
+    /**
+     * @description: 删除二分搜索树的最小元素
+     * @author WuQiChuan
+     * @date 2018/10/15 20:41
+     * @param
+     * @return T
+     * @version: 1.0
+     */
+    public T removeMin(){
+        T ret = minInum();
+        root = removeMin(root);
+        return ret;
+    }
+
+    /**
+     * @description: 递归删除当前节点下的最小元素
+     *
+     *       4          4
+     *     /          /
+     *    3          3
+     *   /          /
+     *  1         2
+     *   \
+     *    2
+     * @author WuQiChuan
+     * @date 2018/10/15 20:41
+     * @param node
+     * @return tree.MyBinarySearchTree<T>.Node
+     * @version: 1.0
+     */
+    private Node removeMin(Node node){
+        //递归结束条件，左子树为空说明当前节点为最小
+        if(node.left == null){
+            //把最小节点的右子树保存
+            Node rightChild = node.right;
+            size--;
+            node.right = null;
+            //返回最小节点的右子树
+            return rightChild;
+        }
+        //最小节点的上一个节点的左子树连接到最小节点的右子树上
+
+        node.left = removeMin(node.left);
+        return node;
+    }
+
+    /**
+     * @description: 删除二分搜索树的最大元素
+     * @author WuQiChuan
+     * @date 2018/10/15 20:41
+     * @param
+     * @return T
+     * @version: 1.0
+     */
+    public T removeMax(){
+        T ret = minInum();
+        root = removeMax(root);
+        return ret;
+    }
+
+    /**
+     * @description: 递归删除当前节点下的最大元素
+     * @author WuQiChuan
+     * @date 2018/10/15 21:45
+     * @param node
+     * @return tree.MyBinarySearchTree<T>.Node
+     * @version: 1.0
+     */
+    private Node removeMax(Node node){
+        //递归结束条件，左子树为空说明当前节点为最小
+        if(node.right == null){
+            //把最小节点的右子树保存
+            Node leftChild = node.left;
+            node.left = null;
+            size--;
+            //返回最小节点的右子树
+            return leftChild;
+        }
+        //最小节点的上一个节点的左子树连接到最小节点的右子树上
+
+        node.right = removeMax(node.right);
+        return node;
     }
 }

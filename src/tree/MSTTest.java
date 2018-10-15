@@ -24,5 +24,7 @@ public class MSTTest {
         myBinarySearchTree.inOrder();
         System.out.println("后序遍历：");
         myBinarySearchTree.postOrder();
+        System.out.println("层序遍历：");
+        myBinarySearchTree.levelOrder();
     }
 }
