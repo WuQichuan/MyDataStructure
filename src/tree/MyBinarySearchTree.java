@@ -274,7 +274,7 @@ public class MyBinarySearchTree <T extends Comparable<T>>{
             throw new IllegalArgumentException("BST is Empty");
         }
 
-        return minInum(root);
+        return minInum(root).t;
     }
 
     /**
@@ -285,10 +285,10 @@ public class MyBinarySearchTree <T extends Comparable<T>>{
      * @return T
      * @version: 1.0
      */
-    private T minInum(Node node){
+    private Node minInum(Node node){
         //递归结束条件，左子树为空，返回当前节点元素
         if(node.left == null){
-            return node.t;
+            return node;
         }
         //否则递归去左子树寻找
         return minInum(node.left);
@@ -306,7 +306,7 @@ public class MyBinarySearchTree <T extends Comparable<T>>{
         if(size == 0){
             throw new IllegalArgumentException("BST is Empty");
         }
-        return maxInum(root);
+        return maxInum(root).t;
     }
 
     /**
@@ -317,10 +317,10 @@ public class MyBinarySearchTree <T extends Comparable<T>>{
      * @return T
      * @version: 1.0
      */
-    private T maxInum(Node node){
+    private Node maxInum(Node node){
         //递归结束条件，左子树为空，返回当前节点元素
         if(node.right == null){
-            return node.t;
+            return node;
         }
         //否则递归去左子树寻找
         return maxInum(node.right);
@@ -408,5 +408,46 @@ public class MyBinarySearchTree <T extends Comparable<T>>{
 
         node.right = removeMax(node.right);
         return node;
+    }
+
+    public void remove(T t){
+        root = remove(root,t);
+    }
+
+    private Node remove(Node node,T t){
+        if(node == null){
+            return null;
+        }
+        if(t.compareTo(node.t)<0){
+            node.left = remove(node.left,t);
+            return node;
+        }else if(t.compareTo(node.t)>0){
+            node.right = remove(node.right,t);
+            return node;
+        }else{//node.t == t,说明要删除node
+
+            //待删除节点左子树为空
+            if(node.left == null){
+                Node rightChild = node.right;
+                node.right =null;
+                size--;
+                return rightChild;
+            }
+            //待删除节点右子树为空
+            if(node.right == null){
+                Node leftChild = node.left;
+                node.left =null;
+                size--;
+                return leftChild;
+            }
+            //待删除节点左右子树都不为空
+            //找到比待删除节点大的最小节点(后继)，即待删除节点右子树的最小节点
+            //用这个节点顶替待删除节点的位置
+            Node successor = minInum(node.right);
+            successor.right = removeMin(node.right);
+            successor.left = node.left;
+            node.left = node.right = null;
+            return successor;
+        }
     }
 }
