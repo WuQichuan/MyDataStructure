@@ -8,7 +8,7 @@ import java.util.TreeSet;
  * @Date: 2018/11/12 16:28
  * @Version: 1.0
  */
-class Solution {
+class Solution804 {
     public int uniqueMorseRepresentations(String[] words) {
         String[] codes = {".-","-...","-.-.","-..",".","..-.","--.","....","..",".---","-.-",".-..","--","-.","---",".--.","--.-",".-.","...","-","..-","...-",".--","-..-","-.--","--.."};
         TreeSet<String> treeSet = new TreeSet<>();

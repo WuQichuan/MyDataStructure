@@ -1,14 +1,12 @@
 package map;
 
-import linkedlist.MyLinkedList;
-
 /**
  * @author WuQiChuan
- * @Description:
+ * @Description: 基于链表实现MAP映射
  * @Date: 2018/11/12 16:58
  * @Version: 1.0
  */
-public class LinkedListMap<K,V> implements MyMap<K,V> {
+public class MyLinkedListMap<K,V> implements MyMap<K,V> {
     //节点
     private class Node{
         public K key;
@@ -46,7 +44,7 @@ public class LinkedListMap<K,V> implements MyMap<K,V> {
      * @date: 2018/11/12 17:03
      * @version: 1.0
      */
-    public LinkedListMap(){
+    public MyLinkedListMap(){
         dummyHead = new Node();
         size = 0;
     }
@@ -54,7 +52,7 @@ public class LinkedListMap<K,V> implements MyMap<K,V> {
      * @description 私有方法，根据Key 寻找节点
      * @author WuQiChuan
      * @param: key
-     * @return: map.LinkedListMap<K,V>.Node
+     * @return: map.MyLinkedListMap<K,V>.Node
      * @date: 2018/11/12 17:05
      * @version: 1.0
      */
