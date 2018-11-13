@@ -1,6 +1,4 @@
-package Queue;
-
-import LinkedList.MyLinkedList;
+package queue;
 
 /**
  * @author WuQiChuan
@@ -94,7 +92,7 @@ public class MyLinkedListQueue<E> implements IQueue {
     @Override
     public Object dequeue() {
         if(isEmpty()){
-            throw  new IllegalArgumentException("Queue is Empty");
+            throw  new IllegalArgumentException("queue is Empty");
         }
         //删除节点为头节点
         Node delNode = head;
@@ -119,7 +117,7 @@ public class MyLinkedListQueue<E> implements IQueue {
     public String toString() {
         StringBuilder res = new StringBuilder();
         Node cur = head;
-        res.append("Queue Front:");
+        res.append("queue Front:");
         while (cur != null){
             res.append(cur +"->");
             cur = cur.next;

@@ -1,4 +1,4 @@
-package Queue;
+package queue;
 
 /**
  * @author WuQiChuan
@@ -108,7 +108,7 @@ public class MyLoopQueue<E> implements IQueue {
     @Override
     public Object getFront() {
         if(isEmpty()){
-            throw new IllegalArgumentException("Queue is empty ,队列为空");
+            throw new IllegalArgumentException("queue is empty ,队列为空");
         }
         return data[front];
     }
@@ -141,7 +141,7 @@ public class MyLoopQueue<E> implements IQueue {
     public String toString(){
         StringBuilder res = new StringBuilder();
         res.append(String.format("Arry : size = %d , capacity = %d\n",size,getCapacity()));
-        res.append("Queue : Front [");
+        res.append("queue : Front [");
         //遍历存储数据的数组并拼接内容
         //从队列首遍历到队列尾，遍历时候 i 是循环 + 1的，循环直到i = 尾部索引所以为止
         for(int i = front; i != tail;i = (i+1)%data.length){
@@ -150,7 +150,7 @@ public class MyLoopQueue<E> implements IQueue {
                 res.append(",");
             }
         }
-        res.append("] Queue tail");
+        res.append("] queue tail");
         return res.toString();
     }
 }

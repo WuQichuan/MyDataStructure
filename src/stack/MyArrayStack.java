@@ -1,6 +1,6 @@
 package stack;
 
-import Array.MyArray;
+import array.MyArray;
 
 /**
  * @author WuQiChuan

@@ -1,6 +1,6 @@
-package Queue;
+package queue;
 
-import Array.MyArray;
+import array.MyArray;
 
 /**
  * @author WuQiChuan
@@ -79,14 +79,14 @@ public class MyArrayQueue<E> implements IQueue {
     @Override
     public String toString() {
         StringBuilder res = new StringBuilder();
-        res.append("Queue : Front [");
+        res.append("queue : Front [");
         for (int i = 0; i<array.getSize();i++){
             res.append(array.get(i));
             if(i != array.getSize()-1){
                 res.append(" , ");
             }
         }
-        res.append("] Queue tail");
+        res.append("] queue tail");
         return res.toString();
     }
 }

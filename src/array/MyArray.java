@@ -1,4 +1,4 @@
-package Array;
+package array;
 
 /**
  * @author WuQiChuan
@@ -207,7 +207,7 @@ public class MyArray<E> {
     public void set(int index,E e){
         //检查参数合法性，是否为负数，是否大于了数组的大小
         if(index < 0 || index > size){
-            throw new IllegalArgumentException("Set failed. index < 0 || index > size"+"\n"+"Set失败，添加位置小于0或者大于数组大小");
+            throw new IllegalArgumentException("MySet failed. index < 0 || index > size"+"\n"+"Set失败，添加位置小于0或者大于数组大小");
         }
         //覆盖指定位置的元素
         data[index] = e;

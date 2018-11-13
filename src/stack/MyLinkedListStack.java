@@ -1,6 +1,6 @@
 package stack;
 
-import LinkedList.MyLinkedList;
+import linkedlist.MyLinkedList;
 
 /**
  * @author WuQiChuan
