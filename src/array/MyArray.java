@@ -26,7 +26,7 @@ public class MyArray<E> {
         size = 0;
     }
     /**
-     * @description:无参数的构造函数，数组默认最大长度设置为50
+     * @description:无参数的构造函数，数组默认最大长度设置为10
      * @author WuQiChuan
      * @date 2018/9/20 21:49
      * @param
@@ -34,7 +34,15 @@ public class MyArray<E> {
      * @version: 1.0
      */
     public MyArray(){
-        this(50);
+        this(10);
+    }
+
+    public MyArray(E[] arr){
+        data = (E[]) new Object[arr.length];
+        for(int i = 0;i<arr.length;i++){
+            data[i] = arr[i];
+        }
+        size = arr.length;
     }
     /**
      * @description:获取数组的元素个数
@@ -292,6 +300,23 @@ public class MyArray<E> {
         }
         //将本类的数组指向新数组，完成数组容量变更
         data = newData;
+    }
+
+    /**
+     * @description 交换两个位置的元素
+     * @author WuQiChuan
+     * @param: [i, j]
+     * @return: void
+     * @date: 2018/11/14 21:58
+     * @version: 1.0
+     */
+    public void swap(int i,int j){
+        if(i < 0 || i >= size || j < 0 || j >= size){
+            throw  new IllegalArgumentException("索引位置不合法");
+        }
+        E e = data[i];
+        data[i] = data[j];
+        data[j] = e;
     }
 
 
